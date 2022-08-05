@@ -9,7 +9,7 @@ while num < 888:
     list_num = 0
 
     pdf_name = 'Collegiate_{}'.format(num)
-    path_to_csv = 'C:\\Users\\goesp\\Desktop\\PDF Python\\Text\\{}.csv'.format(pdf_name)
+    path_to_csv = 'csv_files\\{}.csv'.format(pdf_name)
     #print(num)
 
     if os.path.isfile(path_to_csv):

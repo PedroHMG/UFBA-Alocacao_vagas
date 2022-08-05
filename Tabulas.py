@@ -1,13 +1,18 @@
-from tabula import read_pdf
-import pandas as pd
-from tabulate import tabulate
 import os
+import shutil
+
+import pandas as pd
+from tabula import read_pdf
+from tabulate import tabulate
+
+shutil.rmtree("csv_files", ignore_errors=True, onerror=None)
+os.makedirs("csv_files")
 
 num = 101
 while num < 888:
     pdf_name = 'Collegiate_{}'.format(num)
-    path_to_pdf = 'C:\\Users\\goesp\\Desktop\\PDF Python\\{}.pdf'.format(pdf_name)
-    path_to_csv = 'C:\\Users\\goesp\\Desktop\\PDF Python\\Text\\{}.csv'.format(pdf_name)
+    path_to_pdf = 'pdf_files\\{}.pdf'.format(pdf_name)
+    path_to_csv = 'csv_files\\{}.csv'.format(pdf_name)
     print(num)
 
     if os.path.isfile(path_to_pdf):
@@ -38,7 +43,7 @@ while num < 888:
 
             print(tabulate(table))
 
-            with open(f'C:\\Users\\goesp\\Desktop\\PDF Python\\Text\\{pdf_name}.csv', 'w') as f:
+            with open(f'csv_files\\{pdf_name}.csv', 'w') as f:
                 table.to_csv(f)
 
     num += 1
